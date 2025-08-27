@@ -6,13 +6,11 @@ import requests
 from threading import  Thread
 import os
 from scrapy.http import HtmlResponse
-import sys
-sys.path.insert(0, r'E:\Tracetunnel\request_engine-0.0.0-cp311-cp311-win_amd64\Xbyte_Common_Scrape')
 import request_engine
 import pymongo
-con = pymongo.MongoClient("mongodb://adarshs:YdaJ(4sw@192.168.0.50:27017/?authSource=admin")
+con = pymongo.MongoClient("mongodb://localhost:27017/")
 db = con['amit_kup_a_k_il_3433_1']
-# coll = db[f'mapping_pl_2025_07_23__']
+# coll = db[f'mapping_pl_2025_07_23']
 coll = db[f'mapping_pl_{TDate}']
 
 pdp_collection = db[f'English_PDP_{TDate}']
@@ -432,4 +430,5 @@ if __name__ == '__main__':
             th.start()
         for th in threads:
             th.join()
+
         run_count += 1
